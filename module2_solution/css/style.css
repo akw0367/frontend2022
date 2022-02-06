@@ -1,0 +1,107 @@
+
+
+/********** Base styles **********/
+* {
+	box-sizing: border-box;
+}
+
+h2 {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+h3 {
+	text-align: left;
+	font-family: Arial;
+}
+
+/* Simple Responsive Framework. */
+.row {
+
+	width: 100%;
+}
+
+p {
+	margin-right: auto;
+	margin-left: auto;
+	font-family: Helvetica;
+	color: white;
+	width: 95%;
+}
+
+#chicken {
+	background-color: aquamarine;
+}
+
+#beef {
+	background-color: lemonchiffon;
+}
+#sushi {
+	background-color: lavender;
+}
+
+.col-lg, .col-md, .col-md-2 {
+	border: 1px solid black;
+	background-color: gray;
+	height: 150px;
+	padding: 5px;
+	margin: 0px;
+	font-family: Helvetica;
+	color: white;
+	
+}
+
+.title {
+	width: 25%;
+	position: relative;
+	left: 75%;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	padding: 2px;
+	border: 1px solid black;
+}
+
+/********** Large devices only **********/
+@media (min-width: 992px) {
+	.col-lg {
+		float: left;
+		width: 33%;
+	}
+	h2 {
+		display: show;
+	}
+	h3 {
+		display: none;
+	}
+}
+
+/********** Medium devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	.col-md, .col-md-2 {
+		float: left;
+	}
+	.col-md {
+		width: 50%;
+	}
+	.col-md-2 {
+		clear: left;
+		width: 100%;
+	}
+	h2 {
+		display: show;
+	}
+	h3 {
+		display: none;
+	}
+
+}
+
+@media (max-width: 767px) {
+	h2 {
+		display: none;
+	}
+	h3 {
+		display: show;
+	}
+}
