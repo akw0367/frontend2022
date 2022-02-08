@@ -13,17 +13,17 @@ h3 {
 
 
 
-#chicken {
+#chicken1, #chicken2 {
   background-color: orange;
 }
 
-#beef {
+#beef1, #beef2 {
   background-color: yellow;
 }
-
-#sushi {
+#sushi1, #sushi2 {
   background-color: lightgreen;
 }
+
 
 .menubox {
   border: 1px solid black;
@@ -36,28 +36,26 @@ h3 {
   font-family: Helvetica;
   color: white;
   overflow: auto;
-  
 }
 
-/* Simple Responsive Framework. */
 .row {
   width: 100%;
 }
-
 
 /* LARGE VIEW */
 @media (min-width: 992px) {
 
   .menutitle {
-  width: 25%;
-  position: relative;
-  left: 75%;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  padding: 2px;
-  border: 1px solid black;
-}
+    width: 25%;
+    position: relative;
+    left: 75%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 2px;
+    margin: 0px;
+    border: 1px solid black;
+  }
 
   .col-lg-1, .col-lg-2, .col-lg-3 {
     float: left;
@@ -77,39 +75,59 @@ h3 {
   h3 {
     display: none;
   }
+  #chicken1, #beef1, #sushi1  {
+    display: show;
+  }
+  #chicken2, #beef2, #sushi2 {
+    display: none;
+  }
 }
 
 /* MEDIUM VIEW */
 @media (min-width: 768px) and (max-width: 991px) {
 
-.menutitle {
-  width: 25%;
-  position: relative;
-  left: 75%;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  padding: 2px;
-  border: 1px solid black;
-}
+  .menutitle {
+    width: 25%;
+    position: relative;
+    left: 75%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 2px;
+    margin: 0px;
+    border: 1px solid black;
+  }
 
   .col-md-1, .col-md-2, .col-md-3 {
-   float: left;
+    float: left;
   }
+
   .col-md-1 {
     width: 50%;
   }
+
   .col-md-2 {
     width: 50%;
   }
+
   .col-md-3 {
-  	clear: left;
-    width: 100%;
+   clear: left;
+   width: 100%;
   }
+
   h1 {
     display: show;
   }
+
   h3 {
+    display: none;
+  }
+  
+  #chicken1, #beef1, #sushi1 {
+    display: show;
+  }
+
+  #chicken2, #beef2, #sushi2 {
     display: none;
   }
 }
@@ -127,38 +145,33 @@ h3 {
   }
 
   .menutitle {
-  width: 100%;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  padding: 2px;
-  border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 2px;
+    margin: 0px;
+    border: 1px solid black;
 
-}
-
-.menutitle span{
-  display: none;
-
-}
-
-.menutitle:after
- {
-  display: show;
-  background-color: yellow;
-}
-
-
-  #chicken {
-            visibility: hidden;
-        }
-  #chicken:after {
-      visibility: visible;
-      color: black;
-      font-weight: bold;
-      padding: 2px;
-      border: 1px solid black;
-      background-color: orange;
-      content: "Much longer chicken description that adds a lot of length and should spill to the next line";
   }
-}
+
+  .menutitle span{
+    display: none;
+
+  }
+
+  .menutitle:after
+  {
+    display: show;
+    background-color: yellow;
+  }
+
+  #chicken1, #beef1, #sushi1 {
+    display: none;
+  }
+
+  #chicken2, #beef2, #sushi2 {
+    display: show;
+  }
+
 }
