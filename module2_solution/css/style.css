@@ -1,107 +1,164 @@
-
-
-/********** Base styles **********/
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-h2 {
-	margin-bottom: 10px;
-	text-align: center;
+h1 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: Lato;
 }
-
 h3 {
-	text-align: left;
-	font-family: Arial;
+  text-align: left;
+  font-family: Arial;
+}
+
+
+
+#chicken {
+  background-color: orange;
+}
+
+#beef {
+  background-color: yellow;
+}
+
+#sushi {
+  background-color: lightgreen;
+}
+
+.menubox {
+  border: 1px solid black;
+  background-color: gray;
+  width: 95%;
+  height: 150px;
+  margin: 5px;
+  padding: 3px;
+  font-size: 20px;
+  font-family: Helvetica;
+  color: white;
+  overflow: auto;
+  
 }
 
 /* Simple Responsive Framework. */
 .row {
-
-	width: 100%;
+  width: 100%;
 }
 
-p {
-	margin-right: auto;
-	margin-left: auto;
-	font-family: Helvetica;
-	color: white;
-	width: 95%;
-}
 
-#chicken {
-	background-color: aquamarine;
-}
-
-#beef {
-	background-color: lemonchiffon;
-}
-#sushi {
-	background-color: lavender;
-}
-
-.col-lg, .col-md, .col-md-2 {
-	border: 1px solid black;
-	background-color: gray;
-	height: 150px;
-	padding: 5px;
-	margin: 0px;
-	font-family: Helvetica;
-	color: white;
-	
-}
-
-.title {
-	width: 25%;
-	position: relative;
-	left: 75%;
-	text-align: center;
-	color: black;
-	font-weight: bold;
-	padding: 2px;
-	border: 1px solid black;
-}
-
-/********** Large devices only **********/
+/* LARGE VIEW */
 @media (min-width: 992px) {
-	.col-lg {
-		float: left;
-		width: 33%;
-	}
-	h2 {
-		display: show;
-	}
-	h3 {
-		display: none;
-	}
+
+  .menutitle {
+  width: 25%;
+  position: relative;
+  left: 75%;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  padding: 2px;
+  border: 1px solid black;
 }
 
-/********** Medium devices only **********/
+  .col-lg-1, .col-lg-2, .col-lg-3 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 33%;
+  }
+  .col-lg-2 {
+    width: 33%;
+  }
+  .col-lg-3 {
+    width: 33%;
+  }
+  h1 {
+    display: show;
+  }
+  h3 {
+    display: none;
+  }
+}
+
+/* MEDIUM VIEW */
 @media (min-width: 768px) and (max-width: 991px) {
-	.col-md, .col-md-2 {
-		float: left;
-	}
-	.col-md {
-		width: 50%;
-	}
-	.col-md-2 {
-		clear: left;
-		width: 100%;
-	}
-	h2 {
-		display: show;
-	}
-	h3 {
-		display: none;
-	}
+
+.menutitle {
+  width: 25%;
+  position: relative;
+  left: 75%;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  padding: 2px;
+  border: 1px solid black;
+}
+
+  .col-md-1, .col-md-2, .col-md-3 {
+   float: left;
+  }
+  .col-md-1 {
+    width: 50%;
+  }
+  .col-md-2 {
+    width: 50%;
+  }
+  .col-md-3 {
+  	clear: left;
+    width: 100%;
+  }
+  h1 {
+    display: show;
+  }
+  h3 {
+    display: none;
+  }
+}
+
+/* SMALL VIEW */
+@media (max-width: 767px) {
+  .col-sm-1, .col-sm-2, .col-sm-3 {
+    float: left;
+  }
+  h1 {
+    display: none;
+  }
+  h3 {
+    display: show;
+  }
+
+  .menutitle {
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  padding: 2px;
+  border: 1px solid black;
 
 }
 
-@media (max-width: 767px) {
-	h2 {
-		display: none;
-	}
-	h3 {
-		display: show;
-	}
+.menutitle span{
+  display: none;
+
+}
+
+.menutitle:after
+ {
+  display: show;
+  background-color: yellow;
+}
+
+
+  #chicken {
+            visibility: hidden;
+        }
+  #chicken:after {
+      visibility: visible;
+      color: black;
+      font-weight: bold;
+      padding: 2px;
+      border: 1px solid black;
+      background-color: orange;
+      content: "Much longer chicken description that adds a lot of length and should spill to the next line";
+  }
+}
 }
