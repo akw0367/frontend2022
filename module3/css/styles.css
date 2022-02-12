@@ -1,0 +1,15 @@
+.row {
+  margin-bottom: 15px;
+}
+.row > div {
+  border: 2px solid red;
+  background-color: gray;
+}
+
+h4 {
+	text-align: center;
+}
+
+.col-md-4, .col-sm-6, .col-sm-12, .col-xs-12 {
+	height: 700px;
+}
