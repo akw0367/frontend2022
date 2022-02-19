@@ -65,5 +65,47 @@ WARNING!!! WARNING!!!
         }
     }
 
+    var getGreeting = function(name) {
+        var firstLetter = name.charAt(0).toLowerCase();
+        if (firstLetter == "j") {
+            return byeSpeaker.speakSimple(name);
+        } else {
+            return helloSpeaker.speakSimple(name);
+        }
+    };
+
+    console.log("ARRAY PROTOTYPE MAP RESULTS");
+    const map1 = names.map(name => getGreeting(name));
+
+    for (var i = 0; i < map1.length; i++) {
+        console.log(map1[i]);
+    }
+
+    const initialValue = {hello: [], bye: []};
+    const hello_bye_arrays = names.reduce(
+        (previousValue, currentValue) => {
+            var firstLetter = currentValue.charAt(0).toLowerCase();
+            if (firstLetter == "j") {
+                previousValue.bye.push(byeSpeaker.speakSimple(currentValue));
+            } else {
+                previousValue.hello.push(helloSpeaker.speakSimple(currentValue));
+            }
+
+            return previousValue;
+        },
+        initialValue
+      );
+
+
+    console.log("ARRAY REDUCE RESULTS");
+
+    for (var i = 0; i < hello_bye_arrays.hello.length; i++) {
+        console.log(hello_bye_arrays.hello[i]);
+    }
+
+    for (var i = 0; i < hello_bye_arrays.bye.length; i++) {
+        console.log(hello_bye_arrays.bye[i]);
+    }
+
 })();
 

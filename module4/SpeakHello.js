@@ -21,7 +21,11 @@
 
     helloSpeaker.speak = function (name) {
         console.log(speakWord + " " + name);
-      }
+    }
+
+    helloSpeaker.speakSimple = function (name) {
+        return speakWord + " " + name;
+    }
     
     window.helloSpeaker = helloSpeaker;
 

@@ -21,6 +21,10 @@
         console.log(speakWord + " " + name);
     }
 
+    byeSpeaker.speakSimple = function (name) {
+        return speakWord + " " + name;
+    }
+
     window.byeSpeaker = byeSpeaker;
 
     // STEP 9: Expose the 'byeSpeaker' object to the global scope. Name it
