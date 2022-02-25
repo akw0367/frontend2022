@@ -22,7 +22,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
-var aboutHtmlUrl = "snippets/about-snippet.html";
+var aboutHtmlUrl = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -142,6 +142,7 @@ dc.loadAboutContent = function () {
   $ajaxUtils.sendGetRequest(
     aboutHtmlUrl,
       function (aboutHtml) {
+        aboutHtml = addStarRating(aboutHtml)
         insertHtml("#main-content", aboutHtml);
       },
       false); 
@@ -336,6 +337,25 @@ function insertItemPortionName(html,
   portionValue = "(" + portionValue + ")";
   html = insertProperty(html, portionPropName, portionValue);
   return html;
+}
+
+function addStarRating(aboutHtml) {
+
+  // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  rating = Math.floor(Math.random() * 4 + 1);
+
+
+  for (var i = 1; i <= rating; i++) {
+    aboutHtml = insertProperty(aboutHtml, "star" + i, "fa fa-star");
+  }
+
+  for (var j = rating + 1; j <= 5; j++) {
+    aboutHtml = insertProperty(aboutHtml, "star" + j, "fa fa-star-o");
+  }
+
+  aboutHtml = insertProperty(aboutHtml, "star", rating);
+
+  return aboutHtml;
 }
 
 
