@@ -12,21 +12,29 @@ LunchCheckController.$inject = ['$scope', '$filter'];
 function LunchCheckController($scope, $filter) {
     $scope.msg = "";
     $scope.lunchList = "";
+    $scope.msgStyle = "";
 
     $scope.btnClick = function() {
         var myList = $scope.lunchList;
         var myMsg = "";
+        var myStyle = "";
         if (myList == "") {
             myMsg = "Please enter data first";
+            myStyle="color: red; border: 2px solid red"
         } else {
-            var myArr = myList.split(",");
-            if (myArr.length <= 3) {
-                myMsg = "Enjoy!"
+            myStyle="color: green; border: 2px solid green"
+            var myArr = myList.split(",").filter(element => element.trim());
+            if (myArr.length <= 0) {
+                myMsg = "Please enter data first";
+                myStyle="color: red; border: 2px solid red"
+            } else if (myArr.length <= 3) {
+                myMsg = "Enjoy!";
             } else {
-                myMsg = "Too much!";
+                myMsg = "Too much!";   
             }
         }
         $scope.msg = myMsg;
+        $scope.msgStyle = myStyle;
     }
 }
 

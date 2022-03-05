@@ -14,6 +14,7 @@
   <div ng-controller="LunchCheckController" class="container">
       <h1>Lunch Checker</h1>
  
+      <!-- NOTE: per bonus hw instructions, not counting empty items toward count-->
           <div class="form-group">
               <input id="lunch-menu" type="text"
               placeholder="list comma separated dishes you usually have for lunch"
@@ -23,7 +24,7 @@
           <div class="form-group">
               <button class="btn btn-default" ng-click="btnClick()">Check If Too Much</button>
           </div>
-          <div class="form-group message">
+          <div class="form-group message" style="{{msgStyle}}">
             {{msg}}
           </div>
   </div>
