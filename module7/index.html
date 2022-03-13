@@ -35,7 +35,8 @@
          <h2>To Buy:</h2>
          <ul>
           <li ng-repeat="item in tbc.items">
-            {{ item }}
+            {{ item.name }} (${{item.pricePerItem}})
+            <input type="number" ng-model="item.quantity" value="item.quantity">
             <button ng-click="tbc.buyItem($index);">Bought</button>
           </li>
          </ul>
@@ -47,7 +48,7 @@
          <h2>Already Bought:</h2>
          <ul>
           <li ng-repeat="item in abc.items">
-            {{ item }}
+            Bought {{item.quantity}} of {{ item.name }} for total price of {{item.quantity * item.pricePerItem | currency : "$$$$$"}}
           </li>
          </ul>
          <div class="emptyMessage" ng-if="abc.items.length == 0">Nothing bought yet.</div>
