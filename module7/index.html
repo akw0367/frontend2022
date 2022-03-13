@@ -39,7 +39,7 @@
             <button ng-click="tbc.buyItem($index);">Bought</button>
           </li>
          </ul>
-         <div class="emptyMessage">Everything is bought!</div>
+         <div class="emptyMessage" ng-if="tbc.items.length == 0">Everything is bought!</div>
         </div>
     
         <!-- Already Bought List -->
@@ -50,7 +50,7 @@
             {{ item }}
           </li>
          </ul>
-         <div class="emptyMessage">Nothing bought yet.</div>
+         <div class="emptyMessage" ng-if="abc.items.length == 0">Nothing bought yet.</div>
         </div>
       </div>
     </div>
