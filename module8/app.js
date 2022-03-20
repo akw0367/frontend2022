@@ -11,32 +11,29 @@
         var ddo = {
             templateUrl: 'foundItems.html',
             scope: {
-                foundItems: '<found',
-                onRemove: '&removeItem'
+              items: '<',
+              onRemove: '&'
             },
             controller: NarrowItDownController,
             controllerAs: 'ctrler',
             bindToController: true
-        }
-
-        return ddo;
+          };
         
+          return ddo;
     }
     
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
-
         var ctrler = this;
-
         ctrler.searchTerm = "";
-        ctrler.found = [];
+        ctrler.items = [];
 
         ctrler.getMatchedMenuItems = function () {
             var promise = MenuSearchService.getMatchedMenuItems(ctrler.searchTerm);
 
             promise.then(function(response) {
-                ctrler.found = response;
-                console.log(ctrler.found);
+                ctrler.items = response;
+                console.log(ctrler.items);
             })
             .catch(function(error) {
                 console.log("oopsy daisy");
@@ -45,7 +42,7 @@
         }
 
         ctrler.removeItem = function(index) {
-            ctrler.found.splice(index, 1);
+            ctrler.items.splice(index, 1);
         }
     }
     

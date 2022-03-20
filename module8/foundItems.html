@@ -1,7 +1,7 @@
-<ul>
-    <h4>found items</h4>
-    <li ng-repeat="item in ctrler.found">
-      {{ item.name }}
-      <button ng-click="ctrler.onRemove({index: $index});">Remove Item</button>
-    </li>
-  </ul>
+<h3>Found Items</h3>
+<ol>
+  <li ng-repeat="item in ctrler.items">
+    {{ item.name }}
+    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>
