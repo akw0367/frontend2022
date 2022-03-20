@@ -19,8 +19,9 @@
       <button class="btn btn-primary" ng-click="ctrler.getMatchedMenuItems();">Narrow It Down For Me!</button>
     </div>
 
+    <br>
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <found-items found-items="ctrler.found" on-remove="ctrler.removeItem($index)"></found-items>
   </div>
 
 </body>
