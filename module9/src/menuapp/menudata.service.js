@@ -45,12 +45,22 @@ function MenuDataService($q, $timeout) {
   };
 
   service.getAllCategories = function() {
-    var response = $http({
+    /*var response = $http({
       method: "GET",
       url: (ApiBasePath + "/categories.json")
     });
 
-    return response;
+    return response;*/
+
+    var deferred = $q.defer();
+
+    // Wait 2 seconds before returning
+    $timeout(function () {
+      // deferred.reject(items);
+      deferred.resolve(items);
+    }, 800);
+
+    return deferred.promise;
 
   }
 
