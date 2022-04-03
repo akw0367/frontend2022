@@ -3,7 +3,8 @@
 
 // TODO declare on data module not menu app module
 angular.module('MenuApp')
-.service('MenuDataService', MenuDataService);
+.service('MenuDataService', MenuDataService)
+.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
 
 MenuDataService.$inject = ['$q', '$timeout']
@@ -45,11 +46,22 @@ function MenuDataService($q, $timeout) {
   };
 
   service.getAllCategories = function() {
+    var response = $http({
+      method: "GET",
+      url: (ApiBasePath + "/categories.json")
+    });
+
+    return response;
 
   }
 
   service.getItemsForCategory = function(categoryShortName) {
+    var response = $http({
+      method: "GET",
+      url: (ApiBasePath + "menu_items.json?category=" + categoryShortName)
+    });
 
+    return response;
   }
 }
 
