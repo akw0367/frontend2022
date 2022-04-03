@@ -1,6 +1,5 @@
 (function () {
 'use strict';
 
-angular.module('MenuApp', ['ui.router']);
-//TODO list data module as dependency
+angular.module('MenuApp', ['Data', 'ui.router']);
 })();

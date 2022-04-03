@@ -1,8 +1,7 @@
 (function () {
 'use strict';
 
-// TODO declare on data module not menu app module
-angular.module('MenuApp')
+angular.module('Data')
 .service('MenuDataService', MenuDataService)
 .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
