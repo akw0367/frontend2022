@@ -7,7 +7,6 @@ angular.module('Data')
 
 CategoriesListController.$inject = ['items'];
 function CategoriesListController(items) {
-  console.log(items);
   var categoriesList = this;
   categoriesList.items = items.data;
 }

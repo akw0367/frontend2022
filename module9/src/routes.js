@@ -7,30 +7,24 @@ angular.module('MenuApp')
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
-  // Redirect to home page if no other URL matches
+  // route to home by default
   $urlRouterProvider.otherwise('/');
 
-  // *** Set up UI states ***
   $stateProvider
 
-  // Home page
   .state('home', {
     url: '/',
     templateUrl: 'src/menuapp/templates/home.template.html'
   })
 
-  // Premade list page
   .state('categoriesList', {
     url: '/categories-list',
     templateUrl: 'src/menuapp/templates/categories-list.template.html',
     controller: 'CategoriesListController as categoriesList',
     resolve: {
+      // do not show categories view until data is retrieved
       items: ['MenuDataService', function (MenuDataService) {
-        console.log('calling get ca');
-
         return MenuDataService.getAllCategories();
-
-        
       }]
     }
   })
@@ -40,9 +34,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/menuapp/templates/item-detail.template.html',
     controller: 'ItemDetailController as itemDetail',
     resolve: {
+      // do not show items view until data is retrieved
       items: ['$stateParams', 'MenuDataService',
             function ($stateParams, MenuDataService) {
-              
+              // first get categories, then use user-clicked index to get short name
+              // to query for menu items
               return MenuDataService.getAllCategories()
                 .then(function (items) {
                   return MenuDataService.getItemsForCategory(items.data[$stateParams.itemId].short_name) 
