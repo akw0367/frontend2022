@@ -40,11 +40,20 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/menuapp/templates/item-detail.template.html',
     controller: 'ItemDetailController as itemDetail',
     resolve: {
-      item: ['$stateParams', 'MenuDataService',
+      items: ['$stateParams', 'MenuDataService',
             function ($stateParams, MenuDataService) {
-              return MenuDataService.getItems()
+              
+              return MenuDataService.getAllCategories()
                 .then(function (items) {
-                  return items[$stateParams.itemId];
+                  console.log(items);
+                  console.log($stateParams);
+                  console.log(items.data[$stateParams.itemId]);
+
+                  return MenuDataService.getItemsForCategory(items.data[$stateParams.itemId].short_name) 
+                  .then(function(res) {
+                      console.log(res);
+                      return res.data.menu_items;
+                  });
                 });
             }]
     }

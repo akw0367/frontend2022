@@ -56,7 +56,7 @@ function MenuDataService($q, $timeout, $http, ApiBasePath) {
   service.getItemsForCategory = function(categoryShortName) {
     var response = $http({
       method: "GET",
-      url: (ApiBasePath + "menu_items.json?category=" + categoryShortName)
+      url: (ApiBasePath + "/menu_items.json?category=" + categoryShortName)
     });
 
     return response;
