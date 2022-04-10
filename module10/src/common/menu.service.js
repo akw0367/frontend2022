@@ -27,6 +27,10 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getDummy = function() {
+    return "dummy";
+  }
+
 }
 
 

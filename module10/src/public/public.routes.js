@@ -38,8 +38,21 @@ function routeConfig ($stateProvider) {
       resolve: {
         menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
           return MenuService.getMenuItems($stateParams.category);
+        }],
+        
+      }
+    })
+    .state('public.signup', {
+      url: '/signup',
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'SignupController',
+      controllerAs: 'reg',
+      resolve: {
+        menuCategories: ['MenuService', function (MenuService) {
+          return MenuService.getCategories();
         }]
       }
-    });
+    })
+    ;
 }
 })();
