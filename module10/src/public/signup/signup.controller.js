@@ -8,7 +8,7 @@
     SignupController.$inject = ['menuItems', 'SignupService'];
     function SignupController(menuItems, SignupService) {
       var reg = this;
-      reg.menuItems = menuItems;
+      reg.menuItems = menuItems.menu_items;
       
       reg.submit = function () {
         SignupService.saveUserInfo(reg.user);
@@ -16,7 +16,7 @@
       };
 
       reg.faveInvalid = function (itemCode) {
-        return !menuItems.menu_items.find(item => item.short_name == itemCode.toUpperCase());
+        return !reg.menuItems.find(item => item.short_name == itemCode.toUpperCase());
       };
     };
        
