@@ -8,18 +8,23 @@
     function SignupService() {
       var service = this;
 
-      var email = "";
+      /*var email = "";
       var faveItem = "";
       var firstName = "";
       var lastName = "";
-      var phone = "";
+      var phone = "";*/
+      service.user = "";
       
       service.saveUserInfo = function(user) {
-        email = user.email;
-        faveItem = user.faveitem;
-        firstName = user.firstname;
-        lastName = user.lastName;
-        phone = user.phone;
+        service.user = user;
+      }
+
+      service.isUserRegistered = function() {
+        return service.user != "";
+      }
+
+      service.getUserInfo = function() {
+        return service.user;
       }
     
     }
