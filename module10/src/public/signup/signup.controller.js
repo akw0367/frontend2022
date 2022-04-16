@@ -16,7 +16,6 @@
       };
 
       reg.faveInvalid = function (itemCode) {
-        console.log(menuItems);
         return !menuItems.menu_items.find(item => item.short_name == itemCode.toUpperCase());
       };
     };

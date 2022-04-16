@@ -64,18 +64,9 @@
         <button
           ng-disabled="regForm.$invalid"
           ng-click="reg.submit()">Submit</button>
-
-          <div style="margin-top: 10px;">
-            Form valid? {{ regForm.$valid }}
-          </div>
       </form>
+      <br>
+      <p style="font-size: 12px" ng-if="reg.completed">Your information has been saved</p>
     </fieldset>
-
-    <div id="info" ng-if="reg.completed">
-      Username: {{ reg.user.username}} <br>
-      Email: {{ reg.user.email}} <br>
-      Phone: {{ reg.user.phone }}
-    </div>
-
 </div>
 

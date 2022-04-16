@@ -27,17 +27,9 @@
         myInfoCtrl.email = user.email;
         myInfoCtrl.phone = user.phone;
 
-        console.log(menuItems.menu_items.find(item => item.short_name == user.faveitem.toUpperCase()));
         myInfoCtrl.item = menuItems.menu_items.find(item => item.short_name == user.faveitem.toUpperCase());
       }
-      
-      myInfoCtrl.submit = function () {
-        
-      };
-
-      myInfoCtrl.faveInvalid = function (itemCode) {
-        
-      };
+  
     };
        
     })();
