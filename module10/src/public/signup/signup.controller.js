@@ -5,12 +5,13 @@
     .controller('SignupController', SignupController);
     
 
-    SignupController.$inject = ['menuCategories'];
-    function SignupController(menuCategories) {
+    SignupController.$inject = ['menuCategories', 'SignupService'];
+    function SignupController(menuCategories, SignupService) {
       var reg = this;
       reg.menuCategories = menuCategories;
       
       reg.submit = function () {
+        SignupService.saveUserInfo(reg.user);
         reg.completed = true;
       };
 
