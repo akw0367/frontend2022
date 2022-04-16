@@ -5,9 +5,11 @@
     .controller('MyInfoController', MyInfoController);
     
 
-    MyInfoController.$inject = ['SignupService'];
-    function MyInfoController(SignupService) {
+    MyInfoController.$inject = ['SignupService', 'ApiPath', 'menuItems'];
+    function MyInfoController(SignupService, ApiPath, menuItems) {
       var myInfoCtrl = this;
+      myInfoCtrl.basePath = ApiPath;
+      myInfoCtrl.menuItems = menuItems;
 
       myInfoCtrl.registered = false;
       myInfoCtrl.firstName = "";
@@ -25,6 +27,8 @@
         myInfoCtrl.email = user.email;
         myInfoCtrl.phone = user.phone;
 
+        console.log(menuItems.menu_items.find(item => item.short_name == user.faveitem.toUpperCase()));
+        myInfoCtrl.item = menuItems.menu_items.find(item => item.short_name == user.faveitem.toUpperCase());
       }
       
       myInfoCtrl.submit = function () {

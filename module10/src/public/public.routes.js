@@ -48,8 +48,8 @@ function routeConfig ($stateProvider) {
       controller: 'SignupController',
       controllerAs: 'reg',
       resolve: {
-        menuCategories: ['MenuService', function (MenuService) {
-          return MenuService.getCategories();
+        menuItems: ['MenuService', function (MenuService) {
+          return MenuService.getMenuItems();
         }]
       }
     })
@@ -58,7 +58,11 @@ function routeConfig ($stateProvider) {
       templateUrl: 'src/public/myinfo/myinfo.html',
       controller: 'MyInfoController',
       controllerAs: 'myInfoCtrl',
-      
+      resolve: {
+        menuItems: ['MenuService', function (MenuService) {
+          return MenuService.getMenuItems();
+        }]
+      }
     })
     ;
 }

@@ -5,10 +5,10 @@
     .controller('SignupController', SignupController);
     
 
-    SignupController.$inject = ['menuCategories', 'SignupService'];
-    function SignupController(menuCategories, SignupService) {
+    SignupController.$inject = ['menuItems', 'SignupService'];
+    function SignupController(menuItems, SignupService) {
       var reg = this;
-      reg.menuCategories = menuCategories;
+      reg.menuItems = menuItems;
       
       reg.submit = function () {
         SignupService.saveUserInfo(reg.user);
@@ -16,7 +16,8 @@
       };
 
       reg.faveInvalid = function (itemCode) {
-        return !menuCategories.find(item => item.short_name == itemCode.toUpperCase());
+        console.log(menuItems);
+        return !menuItems.menu_items.find(item => item.short_name == itemCode.toUpperCase());
       };
     };
        

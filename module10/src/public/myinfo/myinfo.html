@@ -11,6 +11,13 @@
       <li>Last name: {{ myInfoCtrl.lastName }}</li>
       <li>Email: {{ myInfoCtrl.email }}</li>
       <li>Phone: {{ myInfoCtrl.phone }}</li>
+      <li>Favorite item: </li>
+
+      <h3>{{myInfoCtrl.item.name}}</h3>
+      <p>{{myInfoCtrl.item.description}}</p>
+      <img width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.item.short_name}}.jpg" alt="{{myInfoCtrl.item.name}}">
+        
+      </div>
 
     </ul>
     
