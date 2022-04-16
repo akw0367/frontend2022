@@ -1,0 +1,14 @@
+
+  <div >
+    <h1>My Info</h1>
+
+    <p ng-if="!myInfoCtrl.registered">
+      Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a> 
+    </p>
+
+    <ul ng-if="myInfoCtrl.registered">
+      <li>Name: {{ myInfoCtrl.firstName }}</li>
+    </ul>
+    
+</div>
+
